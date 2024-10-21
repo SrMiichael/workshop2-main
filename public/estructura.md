@@ -1,0 +1,35 @@
+```
+└── 📁src
+    └── 📁app
+        └── 📁comercio
+            └── 📁[id]
+                └── page.js
+            └── page.js
+        └── 📁detalleCompra
+            └── page.jsx
+        └── 📁fonts
+            └── GeistMonoVF.woff
+            └── GeistVF.woff
+        └── 📁login
+            └── page.js
+        └── 📁nosotros
+            └── page.jsx
+        └── favicon.ico
+        └── globals.css
+        └── layout.js
+        └── not-found.js
+        └── page.js
+    └── 📁components
+        └── 📁CartContext
+            └── CartContext.jsx
+        └── 📁Navbar
+            └── Navbar.jsx
+        └── 📁Perfil
+            └── Perfil.jsx
+        └── 📁ProductCard
+            └── ProductCard.jsx
+        └── 📁ProductPanel
+            └── index.jsx
+    └── 📁data
+        └── producto.json
+```
