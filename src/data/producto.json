@@ -1,0 +1,163 @@
+[
+    {
+      "id": 1,
+      "title": "Mola textiles Guna",
+      "description": "Artesanía textil típica de la cultura Guna.",
+      "price": 25.00,
+      "image": "https://kalosh.com/cdn/shop/articles/Mola_Kalosh_1200x1200.jpg?v=1680992917",
+      "category": "Artesanias"
+    },
+    {
+      "id": 2,
+      "title": "Chaquiras (bisutería artesanal Ngäbe)",
+      "description": "Bisutería hecha a mano por artesanos Ngäbe.",
+      "price": 15.00,
+      "image": "https://artesanosdepanama.com/cdn/shop/products/01-CH14_600x.png?v=1676495071",
+      "category": "Artesanias"
+    },
+    {
+      "id": 3,
+      "title": "Artesanías de bambú",
+      "description": "Artículos decorativos y funcionales de bambú.",
+      "price": 20.00,
+      "image": "https://artesanosdepanama.com/cdn/shop/products/06-B4_600x.png?v=1675786906",
+      "category": "Artesanias"
+    },
+    {
+      "id": 4,
+      "title": "Pollera miniatura (souvenir)",
+      "description": "Miniatura de la pollera tradicional panameña.",
+      "price": 30.00,
+      "image": "https://thepanamastorepty.com/cdn/shop/products/K008_580x.jpg?v=1614094272",
+      "category": "Artesanias"
+    },
+    {
+      "id": 5,
+      "title": "Pollera completa de Gala",
+      "description": "Vestimenta tradicional panameña de gala.",
+      "price": 150.00,
+      "image": "https://ofertasimple.com/uploads/extra/FolkEstudio.png",
+      "category": "Vestimenta tradicional"
+    },
+    {
+      "id": 6,
+      "title": "Sombrero Pintado",
+      "description": "Sombrero pintado a mano, un ícono de la cultura panameña.",
+      "price": 40.00,
+      "image": "https://artesanosdepanama.com/cdn/shop/products/26-S03O_600x.png?v=1677265638",
+      "category": "Vestimenta tradicional"
+    },
+    {
+      "id": 7,
+      "title": "Tembleques",
+      "description": "Accesorios tradicionales para el cabello.",
+      "price": 25.00,
+      "image": "https://images.cdn-files-a.com/uploads/619176/2000_59cb73a4a9eaf.jpg",
+      "category": "Vestimenta tradicional"
+    },
+    {
+      "id": 8,
+      "title": "Camisilla Blanca Para hombre",
+      "description": "Camisilla tradicional blanca para hombres.",
+      "price": 35.00,
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmLSIOq1EgMzNsFQwgDAXQoVl6elFGud1_4w&s",
+      "category": "Vestimenta tradicional"
+    },
+    {
+      "id": 9,
+      "title": "Café Geisha",
+      "description": "Café Geisha de alta calidad, conocido por su sabor único.",
+      "price": 50.00,
+      "image": "https://cafeduran.com/wp-content/uploads/2022/06/Geisha-molido.jpg",
+      "category": "Café y Cacao"
+    },
+    {
+      "id": 10,
+      "title": "Café de Boquete",
+      "description": "Café premium de la región de Boquete.",
+      "price": 45.00,
+      "image": "https://likershop.com/cdn/shop/products/Tezzora425g.png?v=1661433862",
+      "category": "Café y Cacao"
+    },
+    {
+      "id": 11,
+      "title": "Cacao Orgánico de Bocas del Toro",
+      "description": "Cacao orgánico de la región de Bocas del Toro.",
+      "price": 30.00,
+      "image": "https://scontent.fpac2-2.fna.fbcdn.net/v/t1.6435-9/99289474_139220637708720_6904583562419240960_n.jpg",
+      "category": "Café y Cacao"
+    },
+    {
+      "id": 12,
+      "title": "Bombones de Chocolate",
+      "description": "Deliciosos bombones de chocolate.",
+      "price": 20.00,
+      "image": "https://oromorenopanama.com/cdn/shop/files/Caja6Bombones.jpg?v=1699905760",
+      "category": "Café y Cacao"
+    },
+    {
+      "id": 13,
+      "title": "Tortillas de maiz seco empacadas",
+      "description": "Tortillas de maíz seco, listas para disfrutar.",
+      "price": 10.00,
+      "image": "https://pa.productoselantojo.com/cdn/shop/products/tortillademaizgrande2.jpg?v=1594576231",
+      "category": "Gastronomía Típica"
+    },
+    {
+      "id": 14,
+      "title": "Cocada, dulce de coco",
+      "description": "Dulce de coco, un postre típico panameño.",
+      "price": 5.00,
+      "image": "https://www.panamaamerica.com.pa/sites/default/files/imagenes/2022/07/19/cocada_0.jpg",
+      "category": "Gastronomía Típica"
+    },
+    {
+      "id": 15,
+      "title": "Arroz con leche",
+      "description": "Postre tradicional de arroz con leche.",
+      "price": 7.00,
+      "image": "https://www.happy-desserts.com/wp-content/uploads/2023/07/14-e1689094270727.png",
+      "category": "Gastronomía Típica"
+    },
+    {
+      "id": 16,
+      "title": "Miel de caña",
+      "description": "Miel de caña, un endulzante natural.",
+      "price": 8.00,
+      "image": "http://www.melosadulce.com/wp-content/uploads/2020/09/sobre-nosotros_Mesa-de-trabajo-1.png",
+      "category": "Gastronomía Típica"
+    },
+    {
+      "id": 17,
+      "title": "Tambores",
+      "description": "Instrumento musical típico de Panamá.",
+      "price": 60.00,
+      "image": "https://artesanosdepanama.com/cdn/shop/products/96-TB03A_400x.png?v=1676912289",
+      "category": "Instrumentos musicales típicos"
+    },
+    {
+      "id": 18,
+      "title": "Acordeón",
+      "description": "Acordeón tradicional panameño.",
+      "price": 150.00,
+      "image": "https://static.tvn-2.com/clip/4b179bf6-2b00-4e76-bf85-58c1b6c73dbd_16-9-aspect-ratio_1200w_0.webp",
+      "category": "Instrumentos musicales típicos"
+    },
+    {
+      "id": 19,
+      "title": "Maracas Artesanales",
+      "description": "Maracas hechas a mano, típicas de la música panameña.",
+      "price": 25.00,
+      "image": "https://www.ritmorapido.com/wp-content/uploads/2024/08/maracas-instrumento-panameno.png",
+      "category": "Instrumentos musicales típicos"
+    },
+    {
+      "id": 20,
+      "title": "Pandereta",
+      "description": "Pandereta, un instrumento musical de percusión.",
+      "price": 30.00,
+      "image": "https://musicshoppty.com/cdn/shop/files/remo-pandereta-10-fiberskyn-ta-5210-70.jpg?v=1694825086",
+      "category": "Instrumentos musicales típicos"
+    }
+  ]
+  
