@@ -2,6 +2,7 @@
 
 import { createContext, useContext, useReducer } from "react";
 
+
 const initialState = {
   productos: [],
 };
@@ -10,12 +11,18 @@ const CartDispatchContext = createContext(() => {});
 const CartContext = createContext(initialState);
 
 const reducer = (state, action) => {
+  const isAuthenticated = localStorage.getItem("isAuthenticated");
   switch (action.type) {
     case "ADD_PRODUCT":
-      return {
-        ...state,
-        productos: [...state.productos, action.producto],
-      };
+      if (isAuthenticated === "true") {
+        return {
+          ...state,
+          productos: [...state.productos, action.producto],
+        };
+      } else {
+        alert("Debes iniciar sesión para agregar productos al carrito");
+        return state;
+      }
     case "REMOVE_PRODUCT":
       const index = state.productos.findIndex(
         (producto) => producto.name === action.name

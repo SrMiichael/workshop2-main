@@ -33,14 +33,18 @@ export default function Home() {
       <div className="relative bg-purple-100 h-[500px] flex items-center">
         <div className="container mx-auto px-4 flex justify-between items-center">
           <div className="w-1/2">
-            <h1 className="text-4xl font-bold mb-4">Descubre la Belleza de Panamá</h1>
-            <p className="text-lg mb-6">Artesanías únicas que cuentan nuestra historia</p>
+            <h1 className="text-4xl font-bold mb-4">
+              Descubre la Belleza de Panamá
+            </h1>
+            <p className="text-lg mb-6">
+              Artesanías únicas que cuentan nuestra historia
+            </p>
             <button className="bg-black text-white px-8 py-3 rounded-md hover:bg-gray-800">
               Comprar Ahora
             </button>
           </div>
           <div className="w-1/2">
-            <Image 
+            <Image
               src="/img/pollera-Utp.png"
               alt="Artesanías Panameñas"
               width={500}
@@ -50,7 +54,6 @@ export default function Home() {
           </div>
         </div>
       </div>
-
       {/* Benefits Section */}
       <div className="py-12 bg-white">
         <div className="container mx-auto px-4 grid grid-cols-4 gap-8">
@@ -80,7 +83,9 @@ export default function Home() {
                   />
                   <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
                     <div className="text-center">
-                      <h3 className="text-white text-2xl font-semibold">{category.title}</h3>
+                      <h3 className="text-white text-2xl font-semibold">
+                        {category.title}
+                      </h3>
                       <button className="mt-4 bg-white text-black px-6 py-2 rounded-md">
                         Comprar Ahora
                       </button>
@@ -143,8 +148,12 @@ export default function Home() {
       {/* Newsletter */}
       <div className="py-12 bg-amber-50">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-2xl font-bold mb-4">Más que una Tienda de Artesanías</h2>
-          <p className="mb-6">Únete a nuestra newsletter para descubrir la cultura panameña</p>
+          <h2 className="text-2xl font-bold mb-4">
+            Más que una Tienda de Artesanías
+          </h2>
+          <p className="mb-6">
+            Únete a nuestra newsletter para descubrir la cultura panameña
+          </p>
           <div className="max-w-md mx-auto flex gap-4">
             <input
               type="email"
@@ -161,7 +170,9 @@ export default function Home() {
       {/* Reviews Section */}
       <div className="py-12">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-8">Lo que dicen nuestros clientes</h2>
+          <h2 className="text-3xl font-bold text-center mb-8">
+            Lo que dicen nuestros clientes
+          </h2>
           <div className="grid grid-cols-3 gap-8">
             {[1, 2, 3].map((_, index) => (
               <div key={index} className="p-6 bg-white rounded-lg shadow">
@@ -171,13 +182,17 @@ export default function Home() {
                     <h4 className="font-semibold">Cliente Feliz</h4>
                     <div className="flex">
                       {[...Array(5)].map((_, i) => (
-                        <Star key={i} className="w-4 h-4 text-amber-500 fill-current" />
+                        <Star
+                          key={i}
+                          className="w-4 h-4 text-amber-500 fill-current"
+                        />
                       ))}
                     </div>
                   </div>
                 </div>
                 <p className="text-gray-600">
-                  "Excelente calidad en las artesanías. Representan perfectamente nuestra cultura."
+                  "Excelente calidad en las artesanías. Representan
+                  perfectamente nuestra cultura."
                 </p>
               </div>
             ))}
