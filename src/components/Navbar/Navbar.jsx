@@ -4,21 +4,29 @@ import Link from "next/link";
 import { ShoppingCartIcon, MagnifyingGlassIcon, UserIcon } from "@heroicons/react/20/solid";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { useCartContext } from "../CartContext/CartContext";
-import { useAuthContext } from "../CartContext/AuthContext";
-import { usePathname, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 
-const protectedRoutes = ["/comercio", "/detalleCompra", "/nosotros"];
 const accessLink = ["/", "/comercio", "/detalleCompra", "/nosotros"];
 
 export function Navbar() {
   const { productos } = useCartContext();
-  const { isAuthenticated } = useAuthContext();
   const [distinctProducts, setDistinctProducts] = useState([]);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const cartRef = useRef(null);
   const router = useRouter();
-  const pathname = usePathname();
+
+  useEffect(() => {
+    const authStatus = localStorage.getItem("isAuthenticated") === "true";
+    setIsAuthenticated(authStatus);
+  }, []);
+
+  const handleLogout = () => {
+    localStorage.removeItem("isAuthenticated");
+    setIsAuthenticated(false);
+    router.push("/login");
+  };
 
   const toggleCart = () => setIsCartOpen((prev) => !prev);
 
