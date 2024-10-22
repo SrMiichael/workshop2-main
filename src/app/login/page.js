@@ -14,6 +14,7 @@ export default function LoginPage() {
 
     // Simulación de autenticación
     if (username === "admin" && password === "password") {
+      console.log("Inicio de sesión exitoso");
       login();
       // Redirigir al usuario a la página de inicio después de un inicio de sesión exitoso
       router.push("/");
