@@ -81,8 +81,6 @@ export function Navbar() {
             <Link href="/" className="text-gray-600 hover:text-gray-800">Inicio</Link>
             <Link href="/nosotros" className="text-gray-600 hover:text-gray-800">Nosotros</Link>
             <Link href="/comercio" className="text-gray-600 hover:text-gray-800">Tienda</Link>
-            <Link href="/contact" className="text-gray-600 hover:text-gray-800">Contacto</Link>
-            <Link href="/policies" className="text-gray-600 hover:text-gray-800">Políticas y Envíos</Link>
           </div>
 
           {/* Right Side Icons */}
