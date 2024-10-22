@@ -30,22 +30,6 @@ export default function Home() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-<<<<<<< HEAD
-      <div className="relative bg-purple-100 h-[500px] flex items-center">
-        <div className="container mx-auto px-4 flex justify-between items-center">
-          <div className="w-1/2">
-            <h1 className="text-4xl font-bold mb-4">
-              Descubre la Belleza de Panamá
-            </h1>
-            <p className="text-lg mb-6">
-              Artesanías únicas que cuentan nuestra historia
-            </p>
-            <button className="bg-black text-white px-8 py-3 rounded-md hover:bg-gray-800">
-              Comprar Ahora
-            </button>
-          </div>
-          <div className="w-1/2">
-=======
       <div className="relative bg-gradient-to-r from-purple-200 via-purple-100 to-purple-50 h-[600px] flex items-center shadow-lg overflow-hidden">
         <div className="container mx-auto px-8 flex justify-between items-center space-x-8">
           <div className="w-2/3 space-y-6">
@@ -59,9 +43,11 @@ export default function Home() {
 
             {/* Efecto de escritura en el texto */}
             <p className="text-xl text-gray-700 mb-8 animate-typewriter leading-relaxed">
-              Cada producto cuenta una historia única, creada por manos panameñas, reflejando nuestras raíces y tradiciones.
-              Al apoyar este comercio, no solo adquieres piezas exclusivas, sino que también contribuyes a mantener vivas las
-              costumbres y el talento de los pueblos originarios.
+              Cada producto cuenta una historia única, creada por manos
+              panameñas, reflejando nuestras raíces y tradiciones. Al apoyar
+              este comercio, no solo adquieres piezas exclusivas, sino que
+              también contribuyes a mantener vivas las costumbres y el talento
+              de los pueblos originarios.
             </p>
 
             {/* Botón con efecto de hover con borde y glow */}
@@ -72,7 +58,6 @@ export default function Home() {
             </Link>
           </div>
           <div className="w-1/3 animate-bounceIn">
->>>>>>> 54da772cb32a97910d42955273f9021aff98ed97
             <Image
               src="/img/pollera-Utp.png"
               alt="Artesanías Panameñas"
@@ -83,13 +68,6 @@ export default function Home() {
           </div>
         </div>
       </div>
-<<<<<<< HEAD
-=======
-
-
-
-
->>>>>>> 54da772cb32a97910d42955273f9021aff98ed97
       {/* Benefits Section */}
       <div className="py-12 bg-white">
         <div className="container mx-auto px-4 grid grid-cols-4 gap-8">
@@ -103,7 +81,6 @@ export default function Home() {
         </div>
       </div>
 
-<<<<<<< HEAD
       {/* Categories Section */}
       <div className="py-12 bg-gray-50">
         <div className="container mx-auto px-4">
@@ -134,9 +111,6 @@ export default function Home() {
           </div>
         </div>
       </div>
-=======
-
->>>>>>> 54da772cb32a97910d42955273f9021aff98ed97
 
       {/* Best Sellers */}
       <div className="py-12">
