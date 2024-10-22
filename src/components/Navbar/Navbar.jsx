@@ -50,7 +50,7 @@ export function Navbar() {
     const publicPaths = ["/login", "/favicon.ico", "/globals.css"];
     const pathIsPublic = publicPaths.includes(router.pathname);
 
-    if (!isAuthenticated && !pathIsProtected) {
+    if (!isAuthenticated && !pathIsPublic) {
       router.push("/login");
     }
   }, [pathname, router, isAuthenticated]);
