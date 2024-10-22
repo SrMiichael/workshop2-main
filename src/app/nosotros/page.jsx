@@ -100,7 +100,7 @@ export default function Nosotros() {
             {/* Introducción con efecto fade-in */}
             <div className="text-center sm:text-left animate-fadeIn">
               <h1 className="text-4xl font-extrabold text-gray-800 mb-4">
-                Conoce Nuestro Equipo
+                Conocer Nuestro Equipo
               </h1>
               <p className="text-lg text-gray-700 leading-relaxed">
                 Somos un equipo dedicado a proporcionar productos de calidad,
