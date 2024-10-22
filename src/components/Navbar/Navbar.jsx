@@ -1,23 +1,18 @@
 "use client";
-import React, { useEffect, useState, useRef } from "react";
-import Link from "next/link";
 import {
+  Bars3Icon,
+  XMarkIcon,
   ShoppingCartIcon,
   MagnifyingGlassIcon,
   UserIcon,
-} from "@heroicons/react/20/solid";
-import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+} from "@heroicons/react/24/outline";
 import { useCartContext } from "../CartContext/CartContext";
 import { useRouter } from "next/navigation";
+import { useEffect, useRef, useState } from "react";
+import Link from "next/link";
 
-const accessLink = [
-  "/",
-  "/comercio",
-  "/detalleCompra",
-  "/nosotros",
-  "/register",
-  "/login",
-];
+const accessLink = ["/", "/comercio", "/detalleCompra", "/nosotros"];
+const hideNavbarRoutes = ["/login", "/register"];
 
 export function Navbar() {
   const { productos } = useCartContext();
@@ -28,6 +23,10 @@ export function Navbar() {
   const cartRef = useRef(null);
   const router = useRouter();
   const pathname = router.pathname;
+
+  if (hideNavbarRoutes.includes(pathname)) {
+    return null;
+  }
 
   useEffect(() => {
     const authStatus = localStorage.getItem("isAuthenticated") === "true";
@@ -61,22 +60,6 @@ export function Navbar() {
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, [cartRef]);
-
-  useEffect(() => {
-    const publicPaths = ["/login", "/register", "/favicon.ico", "/globals.css"];
-    const pathIsPublic = publicPaths.includes(pathname);
-
-    if (!isAuthenticated && !pathIsPublic) {
-      router.push("/login");
-    } 
-  }, [pathname, router, isAuthenticated]);
-
-  if (
-    pathname &&
-    !accessLink.includes(pathname) &&
-    !pathname.startsWith("/comercio")
-  )
-    return null;
 
   return (
     <>
@@ -161,6 +144,15 @@ export function Navbar() {
                     </span>
                   )}
                 </button>
+
+                {isAuthenticated && (
+                  <button
+                    onClick={handleLogout}
+                    className="text-gray-600 hover:text-gray-800"
+                  >
+                    Salir
+                  </button>
+                )}
               </div>
             </div>
 
