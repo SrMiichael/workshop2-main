@@ -30,6 +30,7 @@ export default function Home() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
+<<<<<<< HEAD
       <div className="relative bg-purple-100 h-[500px] flex items-center">
         <div className="container mx-auto px-4 flex justify-between items-center">
           <div className="w-1/2">
@@ -44,16 +45,51 @@ export default function Home() {
             </button>
           </div>
           <div className="w-1/2">
+=======
+      <div className="relative bg-gradient-to-r from-purple-200 via-purple-100 to-purple-50 h-[600px] flex items-center shadow-lg overflow-hidden">
+        <div className="container mx-auto px-8 flex justify-between items-center space-x-8">
+          <div className="w-2/3 space-y-6">
+            {/* Efecto en el título con gradiente y animación */}
+            <h1 className="text-6xl font-extrabold bg-gradient-to-r from-purple-600 to-pink-500 text-transparent bg-clip-text animate-gradientMove mb-6">
+              Equipo: Tres Tristes Triggers
+            </h1>
+            <h1 className="text-5xl font-extrabold text-gray-900 mb-6 animate-flicker">
+              Descubre la Belleza de Panamá
+            </h1>
+
+            {/* Efecto de escritura en el texto */}
+            <p className="text-xl text-gray-700 mb-8 animate-typewriter leading-relaxed">
+              Cada producto cuenta una historia única, creada por manos panameñas, reflejando nuestras raíces y tradiciones.
+              Al apoyar este comercio, no solo adquieres piezas exclusivas, sino que también contribuyes a mantener vivas las
+              costumbres y el talento de los pueblos originarios.
+            </p>
+
+            {/* Botón con efecto de hover con borde y glow */}
+            <Link href="/comercio">
+              <button className="relative bg-black text-white px-10 py-4 rounded-md transition-all transform hover:scale-105 hover:bg-gray-800 hover:shadow-[0_0_20px_rgba(0,0,0,0.8)] border-2 border-black hover:border-gray-800">
+                Comprar Ahora
+              </button>
+            </Link>
+          </div>
+          <div className="w-1/3 animate-bounceIn">
+>>>>>>> 54da772cb32a97910d42955273f9021aff98ed97
             <Image
               src="/img/pollera-Utp.png"
               alt="Artesanías Panameñas"
               width={500}
               height={500}
-              className="rounded-lg"
+              className="rounded-lg shadow-2xl hover:shadow-purple-300 transition-shadow"
             />
           </div>
         </div>
       </div>
+<<<<<<< HEAD
+=======
+
+
+
+
+>>>>>>> 54da772cb32a97910d42955273f9021aff98ed97
       {/* Benefits Section */}
       <div className="py-12 bg-white">
         <div className="container mx-auto px-4 grid grid-cols-4 gap-8">
@@ -67,6 +103,7 @@ export default function Home() {
         </div>
       </div>
 
+<<<<<<< HEAD
       {/* Categories Section */}
       <div className="py-12 bg-gray-50">
         <div className="container mx-auto px-4">
@@ -97,6 +134,9 @@ export default function Home() {
           </div>
         </div>
       </div>
+=======
+
+>>>>>>> 54da772cb32a97910d42955273f9021aff98ed97
 
       {/* Best Sellers */}
       <div className="py-12">

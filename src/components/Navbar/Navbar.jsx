@@ -66,6 +66,7 @@ export function Navbar() {
           </Link>
 
           <div className="flex items-center space-x-8">
+<<<<<<< HEAD
             <Link href="/" className="text-gray-600 hover:text-gray-800">
               Inicio
             </Link>
@@ -81,6 +82,11 @@ export function Navbar() {
             >
               Tienda
             </Link>
+=======
+            <Link href="/" className="text-gray-600 hover:text-gray-800">Inicio</Link>
+            <Link href="/nosotros" className="text-gray-600 hover:text-gray-800">Nosotros</Link>
+            <Link href="/comercio" className="text-gray-600 hover:text-gray-800">Tienda</Link>
+>>>>>>> 54da772cb32a97910d42955273f9021aff98ed97
           </div>
 
           {/* Right Side Icons */}
