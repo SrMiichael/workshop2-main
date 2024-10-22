@@ -68,7 +68,7 @@ export function Navbar() {
     <nav className="bg-gray-800 p-4">
       <div className="container mx-auto">
         <div className="flex justify-between items-center text-white">
-          <div>My Ecommerce</div>
+          <div>Panamá es Cultura</div>
 
           <div className="flex flex-row gap-5">
             <Link href="/">Inicio</Link>
