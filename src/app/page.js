@@ -1,20 +1,15 @@
 import React from 'react';
 import Image from 'next/image';
-import Link from 'next/link'; // 导入 Link 组件
+import Link from 'next/link';
 import { ShoppingCart, Truck, RefreshCcw, Shield, Star } from 'lucide-react';
+import productsData from '../data/producto.json';
 
 export default function Home() {
   const benefits = [
-    { icon: <Truck className="w-8 h-8 text-amber-500" />, title: "Envío Gratis", description: "En pedidos mayores a $75" },
-    { icon: <RefreshCcw className="w-8 h-8 text-amber-500" />, title: "Política de Devolución", description: "15 días de garantía" },
-    { icon: <ShoppingCart className="w-8 h-8 text-amber-500" />, title: "Pago Seguro", description: "100% Seguro" },
-    { icon: <Shield className="w-8 h-8 text-amber-500" />, title: "Protección", description: "Garantía de calidad" },
-  ];
-
-  const categories = [
-    { title: "Artesanías", image: "/api/placeholder/300/400" },
-    { title: "Mola Kuna", image: "/api/placeholder/300/400" },
-    { title: "Sombreros Pintados", image: "/api/placeholder/300/400" },
+    { icon: <Truck className="w-6 h-6 md:w-8 md:h-8 text-amber-500" />, title: "Envío Gratis", description: "En pedidos mayores a $75" },
+    { icon: <RefreshCcw className="w-6 h-6 md:w-8 md:h-8 text-amber-500" />, title: "Política de Devolución", description: "15 días de garantía" },
+    { icon: <ShoppingCart className="w-6 h-6 md:w-8 md:h-8 text-amber-500" />, title: "Pago Seguro", description: "100% Seguro" },
+    { icon: <Shield className="w-6 h-6 md:w-8 md:h-8 text-amber-500" />, title: "Protección", description: "Garantía de calidad" },
   ];
 
   const bestSellers = [
@@ -23,87 +18,105 @@ export default function Home() {
     { id: 7, title: "Tembleques", price: 25.00, image: "/img/Tembleques.webp" },
   ];
 
-  const categoryCircles = [
-    "Textiles", "Cerámicas", "Máscaras", "Joyería", "Instrumentos", "Tembleques"
+  const categories = [
+    {
+      name: "Artesanias",
+      image: "https://kalosh.com/cdn/shop/articles/Mola_Kalosh_1200x1200.jpg"
+    },
+    {
+      name: "Vestimenta",
+      image: "https://ofertasimple.com/uploads/extra/FolkEstudio.png"
+    },
+    {
+      name: "Café y Cacao",
+      image: "https://cafeduran.com/wp-content/uploads/2022/06/Geisha-molido.jpg"
+    },
+    {
+      name: "Gastronomía\nTípica",
+      image: "https://pa.productoselantojo.com/cdn/shop/products/tortillademaizgrande2.jpg"
+    },
+    {
+      name: "Instrumentos",
+      image: "https://artesanosdepanama.com/cdn/shop/products/96-TB03A_400x.png"
+    }
   ];
 
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <div className="relative bg-gradient-to-r from-purple-200 via-purple-100 to-purple-50 h-[600px] flex items-center shadow-lg overflow-hidden">
-        <div className="container mx-auto px-8 flex justify-between items-center space-x-8">
-          <div className="w-2/3 space-y-6">
-            {/* Efecto en el título con gradiente y animación */}
-            <h1 className="text-6xl font-extrabold bg-gradient-to-r from-purple-600 to-pink-500 text-transparent bg-clip-text animate-gradientMove mb-6">
+      <div className="relative min-h-[400px] md:h-[600px] flex items-start overflow-hidden py-8 md:py-0">
+        {/* Background Image with Overlay */}
+        <div className="absolute inset-0">
+          <Image
+            src="/img/pollera-Utp.png"
+            alt="Background"
+            layout="fill"
+            objectFit="cover"
+            objectPosition="center 15%"
+            className="object-center"
+          />
+          <div className="absolute inset-0 bg-black/60" />
+        </div>
+        
+        <div className="container mx-auto px-4 md:px-8 relative z-10 pt-48 md:pt-56">
+        <div className="w-full md:w-2/3 relative">
+          <div className="space-y-6 md:space-y-8 text-center md:text-left">
+            <h1 className="text-4xl md:text-6xl font-extrabold text-rose-300 animate-gradientMove mb-4 md:mb-6">
               Equipo: Tres Tristes Triggers
             </h1>
-            <h1 className="text-5xl font-extrabold text-gray-900 mb-6 animate-flicker">
+            <h1 className="text-3xl md:text-5xl font-extrabold text-blue-200 mb-4 md:mb-6 animate-flicker">
               Descubre la Belleza de Panamá
             </h1>
-
-            {/* Efecto de escritura en el texto */}
-            <p className="text-xl text-gray-700 mb-8 animate-typewriter leading-relaxed">
+            <p className="text-lg md:text-xl text-gray-100 mb-8 md:mb-10 animate-typewriter leading-relaxed text-justify">
               Cada producto cuenta una historia única, creada por manos panameñas, reflejando nuestras raíces y tradiciones.
               Al apoyar este comercio, no solo adquieres piezas exclusivas, sino que también contribuyes a mantener vivas las
               costumbres y el talento de los pueblos originarios.
             </p>
-
-            {/* Botón con efecto de hover con borde y glow */}
+          </div>
+          
+          <div className="absolute right-0 top-1/2 -translate-y-1/2 md:right-[-375px]">
             <Link href="/comercio">
-              <button className="relative bg-black text-white px-10 py-4 rounded-md transition-all transform hover:scale-105 hover:bg-gray-800 hover:shadow-[0_0_20px_rgba(0,0,0,0.8)] border-2 border-black hover:border-gray-800">
+              <button className="relative bg-rose-100 text-gray-800 px-6 md:px-10 py-3 md:py-4 rounded-md transition-all transform hover:scale-105 hover:bg-rose-200 hover:shadow-[0_0_20px_rgba(254,205,211,0.8)] border-2 border-rose-200">
                 Comprar Ahora
               </button>
             </Link>
           </div>
-          <div className="w-1/3 animate-bounceIn">
-            <Image
-              src="/img/pollera-Utp.png"
-              alt="Artesanías Panameñas"
-              width={500}
-              height={500}
-              className="rounded-lg shadow-2xl hover:shadow-purple-300 transition-shadow"
-            />
-          </div>
         </div>
       </div>
-
-
-
+      </div>
 
       {/* Benefits Section */}
-      <div className="py-12 bg-white">
-        <div className="container mx-auto px-4 grid grid-cols-4 gap-8">
+      <div className="py-8 md:py-12 bg-white">
+        <div className="container mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
           {benefits.map((benefit, index) => (
-            <div key={index} className="flex flex-col items-center text-center">
+            <div key={index} className="flex flex-col items-center text-center p-4">
               {benefit.icon}
-              <h3 className="mt-4 font-semibold">{benefit.title}</h3>
-              <p className="text-sm text-gray-600">{benefit.description}</p>
+              <h3 className="mt-3 md:mt-4 font-semibold text-sm md:text-base">{benefit.title}</h3>
+              <p className="text-xs md:text-sm text-gray-600">{benefit.description}</p>
             </div>
           ))}
         </div>
       </div>
 
-
-
       {/* Best Sellers */}
-      <div className="py-12">
+      <div className="py-8 md:py-12">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-8">Más Vendidos</h2>
-          <div className="grid grid-cols-3 gap-8">
+          <h2 className="text-2xl md:text-3xl font-bold text-center mb-6 md:mb-8">Más Vendidos</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
             {bestSellers.map((product, index) => (
               <Link key={index} href={`/comercio/${product.id}`} passHref>
-                <div className="group cursor-pointer">
-                  <div className="relative h-[300px] mb-4">
+                <div className="group cursor-pointer overflow-hidden rounded-lg">
+                  <div className="relative h-[250px] md:h-[300px] mb-4">
                     <Image
                       src={product.image}
                       alt={product.title}
                       layout="fill"
                       objectFit="cover"
-                      className="rounded-lg"
+                      className="rounded-lg transition-transform duration-300 group-hover:scale-110 group-hover:brightness-90"
                     />
                   </div>
-                  <h3 className="font-semibold">{product.title}</h3>
-                  <p className="text-lg">${product.price}</p>
+                  <h3 className="font-semibold text-sm md:text-base">{product.title}</h3>
+                  <p className="text-base md:text-lg">${product.price}</p>
                 </div>
               </Link>
             ))}
@@ -111,21 +124,25 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Category Circles */}
-      <div className="py-12 bg-gray-50">
+      {/* Category Circles - Updated sizes */}
+      <div className="py-8 md:py-12 bg-gray-50">
         <div className="container mx-auto px-4">
-          <div className="flex justify-between">
-            {categoryCircles.map((category, index) => (
-              <div key={index} className="text-center">
-                <div className="w-24 h-24 rounded-full bg-gray-200 mb-2 mx-auto flex items-center justify-center">
+          <div className="flex justify-between items-center gap-4 overflow-x-auto pb-4 md:pb-0">
+            {categories.map((category, index) => (
+              <div key={index} className="text-center flex-shrink-0 group cursor-pointer">
+                <div className="w-28 h-28 md:w-32 md:h-32 rounded-full bg-white shadow-md mb-2 mx-auto overflow-hidden relative">
                   <Image
-                    src="/api/placeholder/50/50"
-                    alt={category}
-                    width={50}
-                    height={50}
+                    src={category.image}
+                    alt={category.name}
+                    layout="fill"
+                    objectFit="cover"
+                    className="transition-transform duration-300 group-hover:scale-110"
+                    unoptimized
                   />
                 </div>
-                <p className="text-sm">{category}</p>
+                <p className="text-xs md:text-sm font-medium text-gray-800 whitespace-pre-line">
+                  {category.name}
+                </p>
               </div>
             ))}
           </div>
@@ -133,17 +150,17 @@ export default function Home() {
       </div>
 
       {/* Newsletter */}
-      <div className="py-12 bg-amber-50">
+      <div className="py-8 md:py-12 bg-amber-50">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-2xl font-bold mb-4">Más que una Tienda de Artesanías</h2>
-          <p className="mb-6">Únete a nuestra newsletter para descubrir la cultura panameña</p>
-          <div className="max-w-md mx-auto flex gap-4">
+          <h2 className="text-xl md:text-2xl font-bold mb-3 md:mb-4">Más que una Tienda de Artesanías</h2>
+          <p className="mb-4 md:mb-6 text-sm md:text-base">Únete a nuestra newsletter para descubrir la cultura panameña</p>
+          <div className="max-w-md mx-auto flex flex-col md:flex-row gap-3 md:gap-4">
             <input
               type="email"
               placeholder="Tu correo electrónico"
-              className="flex-1 px-4 py-2 border rounded-md"
+              className="flex-1 px-4 py-2 border rounded-md text-sm md:text-base"
             />
-            <button className="bg-amber-500 text-white px-6 py-2 rounded-md hover:bg-amber-600">
+            <button className="bg-amber-500 text-white px-6 py-2 rounded-md hover:bg-amber-600 text-sm md:text-base">
               Suscribirse
             </button>
           </div>
@@ -151,24 +168,32 @@ export default function Home() {
       </div>
 
       {/* Reviews Section */}
-      <div className="py-12">
+      <div className="py-8 md:py-12">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-8">Lo que dicen nuestros clientes</h2>
-          <div className="grid grid-cols-3 gap-8">
+          <h2 className="text-2xl md:text-3xl font-bold text-center mb-6 md:mb-8">Lo que dicen nuestros clientes</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
             {[1, 2, 3].map((_, index) => (
-              <div key={index} className="p-6 bg-white rounded-lg shadow">
+              <div key={index} className="p-4 md:p-6 bg-white rounded-lg shadow">
                 <div className="flex items-center mb-4">
-                  <div className="w-12 h-12 rounded-full bg-gray-200 mr-4" />
+                  <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-gray-200 mr-3 md:mr-4 overflow-hidden group">
+                    <Image
+                      src="/img/PErfil.jpg"
+                      alt="Cliente"
+                      width={48}
+                      height={48}
+                      className="transition-transform duration-300 group-hover:scale-110"
+                    />
+                  </div>
                   <div>
-                    <h4 className="font-semibold">Cliente Feliz</h4>
+                    <h4 className="font-semibold text-sm md:text-base">Cliente Feliz</h4>
                     <div className="flex">
                       {[...Array(5)].map((_, i) => (
-                        <Star key={i} className="w-4 h-4 text-amber-500 fill-current" />
+                        <Star key={i} className="w-3 h-3 md:w-4 md:h-4 text-amber-500 fill-current" />
                       ))}
                     </div>
                   </div>
                 </div>
-                <p className="text-gray-600">
+                <p className="text-gray-600 text-sm md:text-base">
                   "Excelente calidad en las artesanías. Representan perfectamente nuestra cultura."
                 </p>
               </div>

@@ -1,61 +1,102 @@
 'use client';
 import React, { useEffect, useState } from 'react';
+import Image from 'next/image';
 import productsData from '../../../data/producto.json';
-import { useCartDispatchContext } from '../../../components/CartContext/CartContext'; 
+import { useCartDispatchContext } from '../../../components/CartContext/CartContext';
 
-export default function Page({ params }) {
+export default function ProductDetail({ params }) {
   const [producto, setProducto] = useState(null);
-  const dispatch = useCartDispatchContext(); 
+  const [isLoading, setIsLoading] = useState(true);
+  const dispatch = useCartDispatchContext();
 
   useEffect(() => {
     const foundProducto = productsData.find(item => item.id === +params.id);
     setProducto(foundProducto);
+    setIsLoading(false);
   }, [params.id]);
 
+  if (isLoading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="animate-pulse text-amber-700">Cargando producto...</div>
+      </div>
+    );
+  }
+
   if (!producto) {
-    return <div className="text-center text-lg">Loading...</div>;
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="text-xl text-gray-600">Producto no encontrado</div>
+      </div>
+    );
   }
 
   const handleAddToCart = () => {
     dispatch({
       type: 'ADD_PRODUCT',
-      producto: { 
-        name: producto.title, 
-        description: producto.description, 
-        price: producto.price, 
-        imageUrl: producto.image 
+      producto: {
+        name: producto.title,
+        description: producto.description,
+        price: producto.price,
+        imageUrl: producto.image
       },
     });
   };
 
   return (
-    <div className="flex flex-col md:flex-row max-w-5xl mx-auto mt-10 p-6 border border-gray-300 rounded-lg shadow-lg space-x-0 md:space-x-4">
+    <div className="min-h-screen bg-gradient-to-b from-amber-50 to-white">
+      <div className="container mx-auto px-4 py-12">
+        <div className="bg-white rounded-2xl shadow-xl overflow-hidden max-w-5xl mx-auto">
+          <div className="flex flex-col md:flex-row">
+            {/* Imagen del producto */}
+            <div className="md:w-1/2 relative">
+              <div className="aspect-square relative group">
+                <Image
+                  src={producto.image}
+                  alt={producto.title}
+                  layout="fill"
+                  objectFit="cover"
+                  className="transition-transform duration-300 group-hover:scale-105"
+                />
+              </div>
+            </div>
 
-      <div className="md:w-1/2 mb-4 md:mb-0">
-        <img 
-          src={producto.image} 
-          alt={producto.title} 
-          className="w-full h-full object-contain"  
-        />
-      </div>
- 
-      <div className="md:w-1/2 md:pl-4 flex flex-col justify-between">
-        <div className="mb-6"> 
-          <h1 className="text-3xl font-bold mb-2">{producto.title}</h1>
-          <p className="text-lg text-gray-700 mb-2">Categoría: <span className="font-semibold">{producto.category}</span></p><br/>
-          <span className="block mb-4">Descripción:</span>
-          <p className="text-lg mb-4">{producto.description}</p> 
-        </div>
-        <div>
-          <p className="text-xl font-semibold mb-2">
-            Price: <span className="text-orange-500">${producto.price.toFixed(2)}</span>
-          </p>
-          <button 
-            className="w-full mt-4 bg-blue-500 text-white p-3 rounded-lg hover:bg-blue-600 transition duration-300"
-            onClick={handleAddToCart}
-          >
-            Add to Cart
-          </button>
+            {/* Detalles del producto */}
+            <div className="md:w-1/2 p-8 flex flex-col">
+              <div className="flex-grow">
+                <h1 className="text-3xl font-bold text-gray-900 mb-4">
+                  {producto.title}
+                </h1>
+                <div className="mb-6">
+                  <span className="inline-block bg-amber-100 text-amber-800 px-3 py-1 rounded-full text-sm">
+                    {producto.category}
+                  </span>
+                </div>
+                <p className="text-gray-600 mb-8 leading-relaxed">
+                  {producto.description}
+                </p>
+              </div>
+
+              <div className="border-t pt-6">
+                <div className="flex items-center justify-between mb-6">
+                  <span className="text-2xl font-bold text-amber-900">
+                    ${producto.price.toFixed(2)}
+                  </span>
+                </div>
+                <button
+                  onClick={handleAddToCart}
+                  className="w-full py-4 px-6 rounded-lg text-white font-semibold
+                    bg-gradient-to-r from-amber-700 to-amber-500
+                    hover:from-amber-800 hover:to-amber-600
+                    transition-all duration-300 transform hover:scale-[1.02]
+                    focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-opacity-50
+                    shadow-lg hover:shadow-xl"
+                >
+                  Agregar al Carrito
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
