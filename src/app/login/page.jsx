@@ -1,25 +1,29 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import { useAuthContext } from "../../components/CartContext/AuthContext";
 
 export default function LoginPage() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const router = useRouter();
-  const { login } = useAuthContext();
+
+  useEffect(() => {
+    const storedUsername = localStorage.getItem("username");
+    const storedPassword = localStorage.getItem("password");
+    if (storedUsername) setUsername(storedUsername);
+    if (storedPassword) setPassword(storedPassword);
+  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    // Simulación de autenticación
-    if (username === "admin" && password === "password") {
-      console.log("Inicio de sesión exitoso");
-      login();
-      // Redirigir al usuario a la página de inicio después de un inicio de sesión exitoso
+    const storedUsername = localStorage.getItem("username");
+    const storedPassword = localStorage.getItem("password");
+    if (username === storedUsername && password === storedPassword) {
+      alert("Inicio de sesión exitoso");
+      localStorage.setItem("isAuthenticated", "true");
       router.push("/");
     } else {
-      alert("Credenciales incorrectas");
+      alert("Nombre de usuario o contraseña incorrectos");
     }
   };
 
@@ -54,6 +58,9 @@ export default function LoginPage() {
           >
             Iniciar Sesión
           </button>
+          <a href="/register" className="block text-center mt-4 text-blue-500">
+            No tienes cuenta?, regístrate aquí
+          </a>
         </form>
       </div>
     </div>
