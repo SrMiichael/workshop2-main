@@ -40,7 +40,7 @@ export default function Home() {
           </div>
           <div className="w-1/2">
             <Image 
-              src="/api/placeholder/500/500"
+              src="/img/pollera-Utp.png"
               alt="Artesanías Panameñas"
               width={500}
               height={500}
