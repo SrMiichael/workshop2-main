@@ -32,6 +32,7 @@ export default function Page({ params }) {
     <div className="max-w-lg mx-auto p-4 border border-gray-300 rounded-lg shadow-lg">
       <h1 className="text-3xl font-bold mb-4">{producto.title}</h1>
       <img src={producto.image} alt={producto.title} className="w-full h-64 object-cover rounded-md mb-4" />
+      <span>Descripcion</span>
       <p className="text-lg mb-2">{producto.description}</p>
       <p className="text-xl font-semibold">Price: <span className="text-orange-500">${producto.price}</span></p>
       <button 

@@ -1,16 +1,21 @@
 import { ProductCard } from "../ProductCard/ProductCard";
 import { useEffect, useState } from "react";
-import productosData from "../../data/producto"
+import productosData from "../../data/producto";
 
-export default function ProductPanel() {
+export default function ProductPanel({ selectedCategory }) {
   const [productos, setProductos] = useState([]);
+
   useEffect(() => {
     setProductos(productosData);
   }, []);
 
+  const filteredProducts = selectedCategory
+    ? productos.filter(producto => producto.category === selectedCategory)
+    : productos;
+
   return (
     <>
-      {productos.map((producto) => (
+      {filteredProducts.map((producto) => (
         <ProductCard
           key={producto.id}
           id={producto.id}
@@ -18,8 +23,10 @@ export default function ProductPanel() {
           description={producto.description}
           price={producto.price}
           imageUrl={producto.image}
+          category={producto.category}
         />
       ))}
+      {filteredProducts.length === 0 && <p>No products available for this category.</p>}
     </>
   );
 }

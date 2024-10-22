@@ -59,7 +59,6 @@ export function Navbar() {
             <Link href="/">Inicio</Link>
             <Link href="/nosotros">Nosotros</Link>
             <Link href="/comercio">Productos</Link>
-            <Link href="/detalleCompra">Detalle compra</Link>
           </div>
 
           <div className="flex items-center">
