@@ -16,7 +16,7 @@ export default function RegisterPage() {
     }
     localStorage.setItem("username", username);
     localStorage.setItem("password", password);
-    // Aquí puedes agregar la lógica para manejar el envío del formulario
+    localStorage.setItem("isLoggedIn", true); // Crear una sesión en local storage
     alert("Registro exitoso");
     router.push("/login");
   };
