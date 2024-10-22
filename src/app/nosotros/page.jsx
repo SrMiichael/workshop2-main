@@ -17,14 +17,32 @@ export default function Nosotros() {
         </div>
         <div>
           <h1 className="text-2xl font-bold pb-5">Integrantes</h1>
-          <div className="flex flex-row gap-5">
-            <div>
-              <Perfil nombre="Andres Granda" email="agranda@rootstack.com" />
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
+            <div className="border rounded-lg shadow-lg p-5">
+              <img
+                src="/img/PErfil1.jpg"
+                alt="perfil1"
+                className="w-56 h-56 mx-auto"
+              />
+              <Perfil nombre="Diego Navarro" email="agranda@rootstack.com" />
             </div>
-            <div>
+            <div className="border rounded-lg shadow-lg p-5">
+              <img
+                src="/img/PErfil2.jpg"
+                alt="perfil1"
+                className="w-56 h-56 mx-auto"
+              />
+              <Perfil nombre="Freddy Pan" email="yhurtado@rootstack.com" />
+            </div>
+            <div className="border rounded-lg shadow-lg p-5">
+              <img
+                src="/img/PErfil.jpg"
+                alt="perfil"
+                className="w-56 h-56 mx-auto"
+              />
               <Perfil
-                nombre="Yohendry Hurtado"
-                email="yhurtado@rootstack.com"
+                nombre="Michael Aparicio"
+                email="maydanny2004@gmail.com"
               />
             </div>
           </div>

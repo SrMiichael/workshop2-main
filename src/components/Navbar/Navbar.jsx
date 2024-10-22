@@ -6,6 +6,7 @@ import { useAuthContext } from "../CartContext/AuthContext";
 import { useEffect, useState, useRef } from "react";
 import { usePathname, useRouter } from "next/navigation";
 
+const protectedRoutes = ["/comercio", "/detalleCompra", "/nosotros"];
 const accessLink = ["/", "/comercio", "/detalleCompra", "/nosotros"];
 
 
@@ -45,10 +46,11 @@ export function Navbar() {
   }, [cartRef]);
 
   useEffect(() => {
+    console.log("isAuthenticated:", isAuthenticated);
     const publicPaths = ["/login", "/favicon.ico", "/globals.css"];
     const pathIsPublic = publicPaths.includes(router.pathname);
 
-    if (!isAuthenticated && !pathIsPublic) {
+    if (!isAuthenticated && !pathIsProtected) {
       router.push("/login");
     }
   }, [pathname, router, isAuthenticated]);
