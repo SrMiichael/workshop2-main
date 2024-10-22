@@ -86,7 +86,6 @@ export default function Home() {
           />
           <div className="absolute inset-0 bg-black/60" />
         </div>
-<<<<<<< HEAD
         
         <div className="container mx-auto px-4 md:px-8 relative z-10 pt-48 md:pt-56">
         <div className="w-full md:w-2/3 relative">
@@ -114,37 +113,6 @@ export default function Home() {
         </div>
       </div>
       </div>
-=======
-
-        <div className="container mx-auto px-4 md:px-8 relative z-10 pt-48 md:pt-56">
-          <div className="w-full md:w-2/3 relative">
-            <div className="space-y-6 md:space-y-8 text-center md:text-left">
-              <h1 className="text-4xl md:text-6xl font-extrabold text-rose-300 animate-gradientMove mb-4 md:mb-6">
-                Equipo: Tres Tristes Triggers
-              </h1>
-              <h1 className="text-3xl md:text-5xl font-extrabold text-blue-200 mb-4 md:mb-6 animate-flicker">
-                Descubre la Belleza de Panamá
-              </h1>
-              <p className="text-lg md:text-xl text-gray-100 mb-8 md:mb-10 animate-typewriter leading-relaxed text-justify">
-                Cada producto cuenta una historia única, creada por manos
-                panameñas, reflejando nuestras raíces y tradiciones. Al apoyar
-                este comercio, no solo adquieres piezas exclusivas, sino que
-                también contribuyes a mantener vivas las costumbres y el talento
-                de los pueblos originarios.
-              </p>
-            </div>
-
-            <div className="absolute right-0 top-1/2 -translate-y-1/2 md:right-[-375px]">
-              <Link href="/comercio">
-                <button className="relative bg-rose-100 text-gray-800 px-6 md:px-10 py-3 md:py-4 rounded-md transition-all transform hover:scale-105 hover:bg-rose-200 hover:shadow-[0_0_20px_rgba(254,205,211,0.8)] border-2 border-rose-200">
-                  Comprar Ahora
-                </button>
-              </Link>
-            </div>
-          </div>
-        </div>
-      </div>
->>>>>>> 689ee14c7b3ec83a99c618c8ecbc4c511962bf69
 
       {/* Benefits Section */}
       <div className="py-8 md:py-12 bg-white">
@@ -166,40 +134,6 @@ export default function Home() {
         </div>
       </div>
 
-<<<<<<< HEAD
-=======
-      {/* Categories Section */}
-      <div className="py-12 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-3 gap-8">
-            {categories.map((category, index) => (
-              <div key={index} className="relative group cursor-pointer">
-                <div className="relative h-[400px] overflow-hidden rounded-lg">
-                  <Image
-                    src={category.image}
-                    alt={category.title}
-                    layout="fill"
-                    objectFit="cover"
-                    className="transition-transform group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
-                    <div className="text-center">
-                      <h3 className="text-white text-2xl font-semibold">
-                        {category.title}
-                      </h3>
-                      <button className="mt-4 bg-white text-black px-6 py-2 rounded-md">
-                        Comprar Ahora
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-
->>>>>>> 689ee14c7b3ec83a99c618c8ecbc4c511962bf69
       {/* Best Sellers */}
       <div className="py-8 md:py-12">
         <div className="container mx-auto px-4">
@@ -261,19 +195,9 @@ export default function Home() {
       {/* Newsletter */}
       <div className="py-8 md:py-12 bg-amber-50">
         <div className="container mx-auto px-4 text-center">
-<<<<<<< HEAD
           <h2 className="text-xl md:text-2xl font-bold mb-3 md:mb-4">Más que una Tienda de Artesanías</h2>
           <p className="mb-4 md:mb-6 text-sm md:text-base">Únete a nuestra newsletter para descubrir la cultura panameña</p>
           <div className="max-w-md mx-auto flex flex-col md:flex-row gap-3 md:gap-4">
-=======
-          <h2 className="text-2xl font-bold mb-4">
-            Más que una Tienda de Artesanías
-          </h2>
-          <p className="mb-6">
-            Únete a nuestra newsletter para descubrir la cultura panameña
-          </p>
-          <div className="max-w-md mx-auto flex gap-4">
->>>>>>> 689ee14c7b3ec83a99c618c8ecbc4c511962bf69
             <input
               type="email"
               placeholder="Tu correo electrónico"
@@ -289,15 +213,8 @@ export default function Home() {
       {/* Reviews Section */}
       <div className="py-8 md:py-12">
         <div className="container mx-auto px-4">
-<<<<<<< HEAD
           <h2 className="text-2xl md:text-3xl font-bold text-center mb-6 md:mb-8">Lo que dicen nuestros clientes</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
-=======
-          <h2 className="text-3xl font-bold text-center mb-8">
-            Lo que dicen nuestros clientes
-          </h2>
-          <div className="grid grid-cols-3 gap-8">
->>>>>>> 689ee14c7b3ec83a99c618c8ecbc4c511962bf69
             {[1, 2, 3].map((_, index) => (
               <div
                 key={index}
@@ -319,26 +236,13 @@ export default function Home() {
                     </h4>
                     <div className="flex">
                       {[...Array(5)].map((_, i) => (
-<<<<<<< HEAD
                         <Star key={i} className="w-3 h-3 md:w-4 md:h-4 text-amber-500 fill-current" />
-=======
-                        <Star
-                          key={i}
-                          className="w-4 h-4 text-amber-500 fill-current"
-                        />
->>>>>>> 689ee14c7b3ec83a99c618c8ecbc4c511962bf69
                       ))}
                     </div>
                   </div>
                 </div>
-<<<<<<< HEAD
                 <p className="text-gray-600 text-sm md:text-base">
                   "Excelente calidad en las artesanías. Representan perfectamente nuestra cultura."
-=======
-                <p className="text-gray-600">
-                  &quot;Excelente calidad en las artesanías. Representan
-                  perfectamente nuestra cultura.&quot;
->>>>>>> 689ee14c7b3ec83a99c618c8ecbc4c511962bf69
                 </p>
               </div>
             ))}
