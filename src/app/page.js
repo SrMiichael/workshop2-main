@@ -67,21 +67,10 @@ export default function Home() {
             <h1 className="text-3xl md:text-5xl font-extrabold text-blue-200 mb-4 md:mb-6 animate-flicker">
               Descubre la Belleza de Panamá
             </h1>
-<<<<<<< HEAD
             <p className="text-lg md:text-xl text-gray-100 mb-8 md:mb-10 animate-typewriter leading-relaxed text-justify">
               Cada producto cuenta una historia única, creada por manos panameñas, reflejando nuestras raíces y tradiciones.
               Al apoyar este comercio, no solo adquieres piezas exclusivas, sino que también contribuyes a mantener vivas las
               costumbres y el talento de los pueblos originarios.
-=======
-
-            {/* Efecto de escritura en el texto */}
-            <p className="text-xl text-gray-700 mb-8 animate-typewriter leading-relaxed">
-              Cada producto cuenta una historia única, creada por manos
-              panameñas, reflejando nuestras raíces y tradiciones. Al apoyar
-              este comercio, no solo adquieres piezas exclusivas, sino que
-              también contribuyes a mantener vivas las costumbres y el talento
-              de los pueblos originarios.
->>>>>>> 0c94ae51f61d80186822526700ef91f9bdd036be
             </p>
           </div>
           
@@ -94,11 +83,8 @@ export default function Home() {
           </div>
         </div>
       </div>
-<<<<<<< HEAD
       </div>
 
-=======
->>>>>>> 0c94ae51f61d80186822526700ef91f9bdd036be
       {/* Benefits Section */}
       <div className="py-8 md:py-12 bg-white">
         <div className="container mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
@@ -112,40 +98,6 @@ export default function Home() {
         </div>
       </div>
 
-<<<<<<< HEAD
-=======
-      {/* Categories Section */}
-      <div className="py-12 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-3 gap-8">
-            {categories.map((category, index) => (
-              <div key={index} className="relative group cursor-pointer">
-                <div className="relative h-[400px] overflow-hidden rounded-lg">
-                  <Image
-                    src={category.image}
-                    alt={category.title}
-                    layout="fill"
-                    objectFit="cover"
-                    className="transition-transform group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
-                    <div className="text-center">
-                      <h3 className="text-white text-2xl font-semibold">
-                        {category.title}
-                      </h3>
-                      <button className="mt-4 bg-white text-black px-6 py-2 rounded-md">
-                        Comprar Ahora
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-
->>>>>>> 0c94ae51f61d80186822526700ef91f9bdd036be
       {/* Best Sellers */}
       <div className="py-8 md:py-12">
         <div className="container mx-auto px-4">
@@ -200,19 +152,9 @@ export default function Home() {
       {/* Newsletter */}
       <div className="py-8 md:py-12 bg-amber-50">
         <div className="container mx-auto px-4 text-center">
-<<<<<<< HEAD
           <h2 className="text-xl md:text-2xl font-bold mb-3 md:mb-4">Más que una Tienda de Artesanías</h2>
           <p className="mb-4 md:mb-6 text-sm md:text-base">Únete a nuestra newsletter para descubrir la cultura panameña</p>
           <div className="max-w-md mx-auto flex flex-col md:flex-row gap-3 md:gap-4">
-=======
-          <h2 className="text-2xl font-bold mb-4">
-            Más que una Tienda de Artesanías
-          </h2>
-          <p className="mb-6">
-            Únete a nuestra newsletter para descubrir la cultura panameña
-          </p>
-          <div className="max-w-md mx-auto flex gap-4">
->>>>>>> 0c94ae51f61d80186822526700ef91f9bdd036be
             <input
               type="email"
               placeholder="Tu correo electrónico"
@@ -228,15 +170,8 @@ export default function Home() {
       {/* Reviews Section */}
       <div className="py-8 md:py-12">
         <div className="container mx-auto px-4">
-<<<<<<< HEAD
           <h2 className="text-2xl md:text-3xl font-bold text-center mb-6 md:mb-8">Lo que dicen nuestros clientes</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
-=======
-          <h2 className="text-3xl font-bold text-center mb-8">
-            Lo que dicen nuestros clientes
-          </h2>
-          <div className="grid grid-cols-3 gap-8">
->>>>>>> 0c94ae51f61d80186822526700ef91f9bdd036be
             {[1, 2, 3].map((_, index) => (
               <div key={index} className="p-4 md:p-6 bg-white rounded-lg shadow">
                 <div className="flex items-center mb-4">
@@ -253,26 +188,13 @@ export default function Home() {
                     <h4 className="font-semibold text-sm md:text-base">Cliente Feliz</h4>
                     <div className="flex">
                       {[...Array(5)].map((_, i) => (
-<<<<<<< HEAD
                         <Star key={i} className="w-3 h-3 md:w-4 md:h-4 text-amber-500 fill-current" />
-=======
-                        <Star
-                          key={i}
-                          className="w-4 h-4 text-amber-500 fill-current"
-                        />
->>>>>>> 0c94ae51f61d80186822526700ef91f9bdd036be
                       ))}
                     </div>
                   </div>
                 </div>
-<<<<<<< HEAD
                 <p className="text-gray-600 text-sm md:text-base">
                   "Excelente calidad en las artesanías. Representan perfectamente nuestra cultura."
-=======
-                <p className="text-gray-600">
-                  "Excelente calidad en las artesanías. Representan
-                  perfectamente nuestra cultura."
->>>>>>> 0c94ae51f61d80186822526700ef91f9bdd036be
                 </p>
               </div>
             ))}
