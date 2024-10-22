@@ -1,5 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link'; // 导入 Link 组件
 import { ShoppingCart, Truck, RefreshCcw, Shield, Star } from 'lucide-react';
 
 export default function Home() {
@@ -17,9 +18,9 @@ export default function Home() {
   ];
 
   const bestSellers = [
-    { title: "Pollera Panameña", price: 299.99, image: "/api/placeholder/300/400" },
-    { title: "Sombrero Pintado", price: 89.99, image: "/api/placeholder/300/400" },
-    { title: "Mola Tradicional", price: 45.00, image: "/api/placeholder/300/400" },
+    { id: 4, title: "Pollera miniatura", price: 30.00, image: "/img/pollera.webp" },
+    { id: 6, title: "Sombrero Pintado", price: 40.00, image: "/img/sombrero.webp" },
+    { id: 7, title: "Tembleques", price: 25.00, image: "/img/Tembleques.webp" },
   ];
 
   const categoryCircles = [
@@ -98,19 +99,21 @@ export default function Home() {
           <h2 className="text-3xl font-bold text-center mb-8">Más Vendidos</h2>
           <div className="grid grid-cols-3 gap-8">
             {bestSellers.map((product, index) => (
-              <div key={index} className="group">
-                <div className="relative h-[300px] mb-4">
-                  <Image
-                    src={product.image}
-                    alt={product.title}
-                    layout="fill"
-                    objectFit="cover"
-                    className="rounded-lg"
-                  />
+              <Link key={index} href={`/comercio/${product.id}`} passHref>
+                <div className="group cursor-pointer">
+                  <div className="relative h-[300px] mb-4">
+                    <Image
+                      src={product.image}
+                      alt={product.title}
+                      layout="fill"
+                      objectFit="cover"
+                      className="rounded-lg"
+                    />
+                  </div>
+                  <h3 className="font-semibold">{product.title}</h3>
+                  <p className="text-lg">${product.price}</p>
                 </div>
-                <h3 className="font-semibold">{product.title}</h3>
-                <p className="text-lg">${product.price}</p>
-              </div>
+              </Link>
             ))}
           </div>
         </div>
