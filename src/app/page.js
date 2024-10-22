@@ -1,44 +1,73 @@
-import React from 'react';
-import Image from 'next/image';
-import Link from 'next/link';
-import { ShoppingCart, Truck, RefreshCcw, Shield, Star } from 'lucide-react';
-import productsData from '../data/producto.json';
+import React from "react";
+import Image from "next/image";
+import Link from "next/link";
+import { ShoppingCart, Truck, RefreshCcw, Shield, Star } from "lucide-react";
+import productsData from "../data/producto.json";
 
 export default function Home() {
   const benefits = [
-    { icon: <Truck className="w-6 h-6 md:w-8 md:h-8 text-amber-500" />, title: "Envío Gratis", description: "En pedidos mayores a $75" },
-    { icon: <RefreshCcw className="w-6 h-6 md:w-8 md:h-8 text-amber-500" />, title: "Política de Devolución", description: "15 días de garantía" },
-    { icon: <ShoppingCart className="w-6 h-6 md:w-8 md:h-8 text-amber-500" />, title: "Pago Seguro", description: "100% Seguro" },
-    { icon: <Shield className="w-6 h-6 md:w-8 md:h-8 text-amber-500" />, title: "Protección", description: "Garantía de calidad" },
+    {
+      icon: <Truck className="w-6 h-6 md:w-8 md:h-8 text-amber-500" />,
+      title: "Envío Gratis",
+      description: "En pedidos mayores a $75",
+    },
+    {
+      icon: <RefreshCcw className="w-6 h-6 md:w-8 md:h-8 text-amber-500" />,
+      title: "Política de Devolución",
+      description: "15 días de garantía",
+    },
+    {
+      icon: <ShoppingCart className="w-6 h-6 md:w-8 md:h-8 text-amber-500" />,
+      title: "Pago Seguro",
+      description: "100% Seguro",
+    },
+    {
+      icon: <Shield className="w-6 h-6 md:w-8 md:h-8 text-amber-500" />,
+      title: "Protección",
+      description: "Garantía de calidad",
+    },
   ];
 
   const bestSellers = [
-    { id: 4, title: "Pollera miniatura", price: 30.00, image: "/img/pollera.webp" },
-    { id: 6, title: "Sombrero Pintado", price: 40.00, image: "/img/sombrero.webp" },
-    { id: 7, title: "Tembleques", price: 25.00, image: "/img/Tembleques.webp" },
+    {
+      id: 4,
+      title: "Pollera miniatura",
+      price: 30.0,
+      image: "/img/pollera.webp",
+    },
+    {
+      id: 6,
+      title: "Sombrero Pintado",
+      price: 40.0,
+      image: "/img/sombrero.webp",
+    },
+    { id: 7, title: "Tembleques", price: 25.0, image: "/img/Tembleques.webp" },
   ];
 
   const categories = [
     {
       name: "Artesanias",
-      image: "https://kalosh.com/cdn/shop/articles/Mola_Kalosh_1200x1200.jpg"
+      image: "https://kalosh.com/cdn/shop/articles/Mola_Kalosh_1200x1200.jpg",
     },
     {
       name: "Vestimenta",
-      image: "https://ofertasimple.com/uploads/extra/FolkEstudio.png"
+      image: "https://ofertasimple.com/uploads/extra/FolkEstudio.png",
     },
     {
       name: "Café y Cacao",
-      image: "https://cafeduran.com/wp-content/uploads/2022/06/Geisha-molido.jpg"
+      image:
+        "https://cafeduran.com/wp-content/uploads/2022/06/Geisha-molido.jpg",
     },
     {
       name: "Gastronomía\nTípica",
-      image: "https://pa.productoselantojo.com/cdn/shop/products/tortillademaizgrande2.jpg"
+      image:
+        "https://pa.productoselantojo.com/cdn/shop/products/tortillademaizgrande2.jpg",
     },
     {
       name: "Instrumentos",
-      image: "https://artesanosdepanama.com/cdn/shop/products/96-TB03A_400x.png"
-    }
+      image:
+        "https://artesanosdepanama.com/cdn/shop/products/96-TB03A_400x.png",
+    },
   ];
 
   return (
@@ -255,8 +284,8 @@ export default function Home() {
                   </div>
                 </div>
                 <p className="text-gray-600">
-                  "Excelente calidad en las artesanías. Representan
-                  perfectamente nuestra cultura."
+                  &quot;Excelente calidad en las artesanías. Representan
+                  perfectamente nuestra cultura.&quot;
                 </p>
               </div>
             ))}

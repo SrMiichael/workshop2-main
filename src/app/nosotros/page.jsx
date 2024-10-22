@@ -1,5 +1,6 @@
 import { Perfil } from "../../components/Perfil/Perfil";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Nosotros() {
   return (
@@ -34,9 +35,11 @@ export default function Nosotros() {
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
               <div className="border rounded-lg shadow-lg p-6 bg-white hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-2">
-                <img
+                <Image
                   src="/img/PErfil1.jpg"
                   alt="perfil1"
+                  width={224} // Ajusta el ancho según sea necesario
+                  height={224} // Ajusta la altura según sea necesario
                   className="w-56 h-56 mx-auto rounded-full"
                 />
                 <Perfil
