@@ -21,6 +21,7 @@ export default function LoginPage() {
     if (username === storedUsername && password === storedPassword) {
       alert("Inicio de sesión exitoso");
       localStorage.setItem("isAuthenticated", "true");
+      console.log("Redirigiendo a la página principal");
       router.push("/");
     } else {
       alert("Nombre de usuario o contraseña incorrectos");
