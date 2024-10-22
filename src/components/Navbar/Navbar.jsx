@@ -9,7 +9,7 @@ import { usePathname, useRouter } from "next/navigation";
 const protectedRoutes = ["/comercio", "/detalleCompra", "/nosotros"];
 const accessLink = ["/", "/comercio", "/detalleCompra", "/nosotros"];
 
-//logica del nav
+
 export function Navbar() {
   const { productos } = useCartContext();
   const { isAuthenticated } = useAuthContext();
@@ -47,20 +47,24 @@ export function Navbar() {
 
   useEffect(() => {
     console.log("isAuthenticated:", isAuthenticated);
-    const pathIsProtected = protectedRoutes.includes(pathname);
+    const publicPaths = ["/login", "/favicon.ico", "/globals.css"];
+    const pathIsPublic = publicPaths.includes(router.pathname);
 
     if (!isAuthenticated && !pathIsProtected) {
       router.push("/login");
     }
   }, [pathname, router, isAuthenticated]);
 
-  if (!accessLink.includes(pathname) && !pathname.startsWith("/comercio"))
-    return null;
+  if (!accessLink.includes(pathname) && !pathname.startsWith("/comercio")) return null;
 
   const handleSearchKeyDown = (e) => {
     if (e.key === "Enter") {
-      console.log("Searching for:", searchTerm);
-      //saltar a x pestana
+      const productFound = distinctProducts.find(product => product.name.toLowerCase() === searchTerm.toLowerCase());
+      if (productFound) {
+        router.push(`/comercio/${productFound.id}`);
+      } else {
+        console.log("Product not found");
+      }
     }
   };
 
@@ -111,45 +115,47 @@ export function Navbar() {
                   </span>
                 )}
               </button>
+
               {isCartOpen && (
-                <div className="absolute right-0 mt-2 w-64 bg-white shadow-lg rounded-lg p-4">
+                <div className="fixed inset-0 bg-gray-900 opacity-50 z-40" onClick={toggleCart}></div>
+              )}
+
+              <div className={`fixed right-0 top-0 w-64 h-screen bg-white shadow-lg p-4 transition-transform transform ${isCartOpen ? 'translate-x-0' : 'translate-x-full'} z-50`}>
+                <h2 className="text-lg font-bold mb-4 bg-black text-white p-2 rounded">Carrito de compra</h2>
+                <div className="max-h-[70vh] overflow-y-auto">
                   {distinctProducts.length > 0 ? (
                     <ul>
-                      {distinctProducts.map((product, index) => (
-                        <li
-                          key={index}
-                          className="border-b py-2 text-gray-800 flex justify-between"
-                        >
-                          <span>
-                            {product.name}
-                            {productos.filter(
-                              (prod) => prod.name === product.name
-                            ).length !== 0
-                              ? ` x ${
-                                  productos.filter(
-                                    (prod) => prod.name === product.name
-                                  ).length
-                                }`
-                              : ""}
-                          </span>
-                          <span>
-                            {productos
-                              .filter((prod) => prod.name === product.name)
-                              .map((prod) => prod.price)
-                              .reduce(
-                                (acumulador, valorActual) =>
-                                  acumulador + valorActual,
-                                0
-                              )}
-                          </span>
-                        </li>
-                      ))}
+                      {distinctProducts.map((product, index) => {
+                        const productCount = productos.filter(prod => prod.name === product.name).length;
+                        const productTotalPrice = productos
+                          .filter((prod) => prod.name === product.name)
+                          .reduce((acc, prod) => acc + prod.price, 0);
+
+                        return (
+                          <li key={index} className="border-b py-2 text-gray-800 flex justify-between items-center">
+                            <div className="flex items-center">
+                              <img src={product.imageUrl} alt={product.name} className="w-10 h-10 mr-2" />
+                              <span>{product.name} x {productCount}</span>
+                            </div>
+                            <span>${productTotalPrice.toFixed(2)}</span>
+                          </li>
+                        );
+                      })}
                     </ul>
                   ) : (
-                    <p className="text-gray-600">No tienes productos</p>
+                    <p className="text-gray-600">Carrito vacío</p>
                   )}
                 </div>
-              )}
+                <div className="mt-4">
+                  <p className="font-bold text-black text-2xl"><br />
+                    Subtotal: <br />$ 
+                    {productos
+                      .map((prod) => prod.price)
+                      .reduce((acc, valorActual) => acc + valorActual, 0)
+                      .toFixed(2)}
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>

@@ -1,6 +1,7 @@
 import localFont from "next/font/local";
 import "./globals.css";
 import { Navbar } from "../components/Navbar/Navbar";
+import { Footer } from "../components/Footer/Footer"
 import { CartProvider } from "../components/CartContext/CartContext";
 import { AuthProvider } from "../components/CartContext/AuthContext";
 
@@ -30,6 +31,7 @@ export default function RootLayout({ children }) {
           <CartProvider>
             <Navbar />
             {children}
+            <Footer/>
           </CartProvider>
         </AuthProvider>
       </body>
