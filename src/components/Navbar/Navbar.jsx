@@ -2,18 +2,23 @@
 import Link from "next/link";
 import { ShoppingCartIcon, MagnifyingGlassIcon, UserIcon } from "@heroicons/react/20/solid"; 
 import { useCartContext } from "../CartContext/CartContext";
+import { useAuthContext } from "../CartContext/AuthContext";
 import { useEffect, useState, useRef } from "react";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 
 const accessLink = ["/", "/comercio", "/detalleCompra", "/nosotros"];
 
+//logica del nav
 export function Navbar() {
   const { productos } = useCartContext();
+  const { isAuthenticated } = useAuthContext();
   const [distinctProducts, setDistinctProducts] = useState([]);
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
   const cartRef = useRef(null);
-  
+  const router = useRouter();
+  const pathname = usePathname();
+
   const toggleCart = () => setIsCartOpen((prev) => !prev);
 
   useEffect(() => {
@@ -33,14 +38,24 @@ export function Navbar() {
     };
 
     document.addEventListener("mousedown", handleClickOutside);
-    
+
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [cartRef]);
 
-  const pathname = usePathname();
-  if (!accessLink.includes(pathname) && !pathname.startsWith("/comercio")) return null;
+  useEffect(() => {
+    console.log("isAuthenticated:", isAuthenticated);
+    const publicPaths = ["/login", "/favicon.ico", "/globals.css"];
+    const pathIsPublic = publicPaths.includes(router.pathname);
+
+    if (!isAuthenticated && !pathIsPublic) {
+      router.push("/login");
+    }
+  }, [pathname, router, isAuthenticated]);
+
+  if (!accessLink.includes(pathname) && !pathname.startsWith("/comercio"))
+    return null;
 
   const handleSearchKeyDown = (e) => {
     if (e.key === "Enter") {
@@ -75,14 +90,20 @@ export function Navbar() {
             </div>
 
             <div className="flex items-center ml-4">
-              <Link href="/login" className="flex items-center text-white hover:text-gray-400">
-                <UserIcon className="w-6 h-6 mr-1" /> 
+              <Link
+                href="/login"
+                className="flex items-center text-white hover:text-gray-400"
+              >
+                <UserIcon className="w-6 h-6 mr-1" />
                 Login
               </Link>
             </div>
 
-            <div className="relative ml-4" ref={cartRef}> 
-              <button onClick={toggleCart} className="text-white hover:text-gray-400">
+            <div className="relative ml-4" ref={cartRef}>
+              <button
+                onClick={toggleCart}
+                className="text-white hover:text-gray-400"
+              >
                 <ShoppingCartIcon className="w-6 h-6" />
                 {productos.length > 0 && (
                   <span className="absolute top-2 right-2 bg-red-600 text-white rounded-full w-5 h-5">
@@ -95,18 +116,31 @@ export function Navbar() {
                   {distinctProducts.length > 0 ? (
                     <ul>
                       {distinctProducts.map((product, index) => (
-                        <li key={index} className="border-b py-2 text-gray-800 flex justify-between">
+                        <li
+                          key={index}
+                          className="border-b py-2 text-gray-800 flex justify-between"
+                        >
                           <span>
                             {product.name}
-                            {productos.filter((prod) => prod.name === product.name).length !== 0
-                              ? ` x ${productos.filter((prod) => prod.name === product.name).length}`
+                            {productos.filter(
+                              (prod) => prod.name === product.name
+                            ).length !== 0
+                              ? ` x ${
+                                  productos.filter(
+                                    (prod) => prod.name === product.name
+                                  ).length
+                                }`
                               : ""}
                           </span>
                           <span>
                             {productos
                               .filter((prod) => prod.name === product.name)
                               .map((prod) => prod.price)
-                              .reduce((acumulador, valorActual) => acumulador + valorActual, 0)}
+                              .reduce(
+                                (acumulador, valorActual) =>
+                                  acumulador + valorActual,
+                                0
+                              )}
                           </span>
                         </li>
                       ))}
