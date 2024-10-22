@@ -6,7 +6,7 @@ import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { useCartContext } from "../CartContext/CartContext";
 import { useRouter } from "next/navigation";
 
-const accessLink = ["/", "/comercio", "/detalleCompra", "/nosotros"];
+const hideNavbarRoutes = ["/login", "/register"];
 
 export function Navbar() {
   const { productos } = useCartContext();
@@ -16,19 +16,14 @@ export function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const cartRef = useRef(null);
   const router = useRouter();
+  const pathname = router.pathname;
+
+  const isHiddenRoute = hideNavbarRoutes.includes(pathname);
 
   useEffect(() => {
     const authStatus = localStorage.getItem("isAuthenticated") === "true";
     setIsAuthenticated(authStatus);
   }, []);
-
-  const handleLogout = () => {
-    localStorage.removeItem("isAuthenticated");
-    setIsAuthenticated(false);
-    router.push("/login");
-  };
-
-  const toggleCart = () => setIsCartOpen((prev) => !prev);
 
   useEffect(() => {
     setDistinctProducts(
@@ -45,29 +40,32 @@ export function Navbar() {
         setIsCartOpen(false);
       }
     };
-
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, [cartRef]);
+  }, []);
 
-  useEffect(() => {
-    const publicPaths = ["/login", "/favicon.ico", "/globals.css"];
-    const pathIsPublic = publicPaths.includes(pathname);
+  if (isHiddenRoute) {
+    return null;
+  }
 
-    if (!isAuthenticated && !pathIsPublic) {
-      router.push("/login");
-    }
-  }, [pathname, router, isAuthenticated]);
+  const handleLogout = () => {
+    localStorage.removeItem("isAuthenticated");
+    setIsAuthenticated(false);
+    router.push("/login");
+  };
 
-  if (!accessLink.includes(pathname) && !pathname.startsWith("/comercio")) return null;
+  const toggleCart = () => setIsCartOpen((prev) => !prev);
 
   return (
     <>
       {/* Top Banner */}
       <div className="w-full bg-white text-center py-2 text-xs md:text-sm border-b relative">
-        <p className="px-4">Envío Gratis en Pedidos Mayores a $75 antes de impuestos y después de descuentos aplicables.</p>
-        <a 
-          href="mailto:info@artesaniaspanama.com" 
+        <p className="px-4">
+          Envío Gratis en Pedidos Mayores a $75 antes de impuestos y después de
+          descuentos aplicables.
+        </p>
+        <a
+          href="mailto:info@artesaniaspanama.com"
           className="hidden md:block absolute right-4 top-2 text-gray-600 hover:text-gray-800"
         >
           info@artesaniaspanama.com
@@ -126,6 +124,15 @@ export function Navbar() {
                     </span>
                   )}
                 </button>
+
+                {isAuthenticated && (
+                  <button
+                    onClick={handleLogout}
+                    className="ml-4 text-gray-600 hover:text-gray-800"
+                  >
+                    Salir
+                  </button>
+                )}
               </div>
             </div>
 
@@ -145,6 +152,14 @@ export function Navbar() {
                   </span>
                 )}
               </button>
+              {isAuthenticated && (
+                <button
+                  onClick={handleLogout}
+                  className="text-gray-600 hover:text-gray-800"
+                >
+                  Salir
+                </button>
+              )}
             </div>
           </div>
 
