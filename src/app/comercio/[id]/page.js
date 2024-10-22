@@ -29,18 +29,35 @@ export default function Page({ params }) {
   };
 
   return (
-    <div className="max-w-lg mx-auto p-4 border border-gray-300 rounded-lg shadow-lg">
-      <h1 className="text-3xl font-bold mb-4">{producto.title}</h1>
-      <img src={producto.image} alt={producto.title} className="w-full h-64 object-cover rounded-md mb-4" />
-      <span>Descripcion</span>
-      <p className="text-lg mb-2">{producto.description}</p>
-      <p className="text-xl font-semibold">Price: <span className="text-orange-500">${producto.price}</span></p>
-      <button 
-        className="mt-4 bg-blue-500 text-white p-2 rounded-lg hover:bg-blue-600 transition duration-300"
-        onClick={handleAddToCart}
-      >
-        Add to Cart
-      </button>
+    <div className="flex flex-col md:flex-row max-w-5xl mx-auto mt-10 p-6 border border-gray-300 rounded-lg shadow-lg space-x-0 md:space-x-4">
+
+      <div className="md:w-1/2 mb-4 md:mb-0">
+        <img 
+          src={producto.image} 
+          alt={producto.title} 
+          className="w-full h-full object-contain"  
+        />
+      </div>
+ 
+      <div className="md:w-1/2 md:pl-4 flex flex-col justify-between">
+        <div className="mb-6"> 
+          <h1 className="text-3xl font-bold mb-2">{producto.title}</h1>
+          <p className="text-lg text-gray-700 mb-2">Categoría: <span className="font-semibold">{producto.category}</span></p><br/>
+          <span className="block mb-4">Descripción:</span>
+          <p className="text-lg mb-4">{producto.description}</p> 
+        </div>
+        <div>
+          <p className="text-xl font-semibold mb-2">
+            Price: <span className="text-orange-500">${producto.price.toFixed(2)}</span>
+          </p>
+          <button 
+            className="w-full mt-4 bg-blue-500 text-white p-3 rounded-lg hover:bg-blue-600 transition duration-300"
+            onClick={handleAddToCart}
+          >
+            Add to Cart
+          </button>
+        </div>
+      </div>
     </div>
   );
 }
